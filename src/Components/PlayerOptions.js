@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setPlayerGame, statusButtonPlay } from '../Actions';
 
 class PlayerOptions extends React.Component {
   constructor() {
@@ -10,9 +9,7 @@ class PlayerOptions extends React.Component {
   }
 
   setChoice({ target }) {
-    const { setPlayerGame, statusButtonPlay } = this.props;
-    setPlayerGame(target.innerText);
-    statusButtonPlay(true)
+  
   }
 
   render() {
@@ -45,8 +42,7 @@ class PlayerOptions extends React.Component {
 }
 
 const mapDispatchToprops = (dispatch) => ({
-  setPlayerGame: (choice) => dispatch(setPlayerGame(choice)),
-  statusButtonPlay: (status) => dispatch(statusButtonPlay(status)),
+ 
 })
 
 export default connect(null, mapDispatchToprops)(PlayerOptions);
