@@ -52,8 +52,7 @@ class ComandButtons extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  displayButtonPlay: state.buttonsReducer.displayButtonPlay,
-  displayButtonReload: state.buttonsReducer.displayButtonReload,
+
 })
 
 const mapDispatchToprops = (dispatch) => ({

@@ -34,9 +34,7 @@ class resultMessage extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  playerOption: state.gameReducer.playerOption,
-  cpuOption: state.gameReducer.cpuOption,
-  startGame: state.gameReducer.startGame,
+
 })
 
 export default connect(mapStateToProps)(resultMessage);

@@ -19,8 +19,7 @@ class CpuChoice extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  cpuOption: state.gameReducer.cpuOption,
-  startGame: state.gameReducer.startGame,
+
 })
 
 const mapDispatchToProps = (dispatch) => ({

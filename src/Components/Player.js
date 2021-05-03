@@ -17,8 +17,7 @@ class Player extends React.Component {
 }
 
 const mapStateToProps = (state)  => ({
-  displayOptions: state.gameReducer.displayOptions,
-  playerOption: state.gameReducer.playerOption,
+
 })
 
 export default connect(mapStateToProps)(Player);
