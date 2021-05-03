@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { rockSelected, paperSelected, scisorSelected } from '../Data';
 
 class resultMessage extends React.Component {
@@ -9,27 +10,33 @@ class resultMessage extends React.Component {
   }
 
   checkWinner() {
-    const { playerSelect, cpuSelect } = this.props;
-    switch (playerSelect) {
+    const { playerOption, cpuOption } = this.props;
+    switch (playerOption) {
     case 'Pedra':
-      return rockSelected(cpuSelect);
+      return rockSelected(cpuOption);
     case 'Papel':
-      return paperSelected(cpuSelect)
+      return paperSelected(cpuOption)
     case 'Tesoura':
-      return scisorSelected(cpuSelect)
+      return scisorSelected(cpuOption)
     default:
       return '';
     }
   }
 
   render() {
-    const { playerChoiceSelectd } = this.props;
+    const { startGame } = this.props;
     return (
       <div>
-        <p>{(playerChoiceSelectd) ? <h2>{ this.checkWinner() }</h2> : 'Escolha uma opção e clique em jogar'}</p>
+        <p>{(startGame) ? <h2>{ this.checkWinner() }</h2> : 'Escolha uma opção e clique em jogar'}</p>
       </div>
     )
   }
 }
 
-export default resultMessage;
+const mapStateToProps = (state) => ({
+  playerOption: state.gameReducer.playerOption,
+  cpuOption: state.gameReducer.cpuOption,
+  startGame: state.gameReducer.startGame,
+})
+
+export default connect(mapStateToProps)(resultMessage);

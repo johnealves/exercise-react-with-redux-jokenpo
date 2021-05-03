@@ -1,4 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import {
+  activeStartGame,
+  setDisplayButtonReload,
+  statusButtonPlay,
+  statusDisplayOptions
+} from '../Actions';
 
 class ComandButtons extends React.Component {
   constructor(props) {
@@ -6,18 +13,19 @@ class ComandButtons extends React.Component {
 
     this.playGame = this.playGame.bind(this);
     this.refreshPage = this.refreshPage.bind(this);
-
-    this.state = {
-      displayButtonReload: false,
-    }
   }
 
   playGame() {
-    const { statusPlayerChoice, handleDisplayOptions, handleDiplayPlay } = this.props;
-    statusPlayerChoice();
-    this.setState({ displayButtonReload: true });
-    handleDisplayOptions();
-    handleDiplayPlay();
+    const {
+      displayOptionsStatus,
+      statusButtonPlay,
+      activeStartGame,
+      setDisplayButtonReload
+    } = this.props;
+    displayOptionsStatus(false)
+    statusButtonPlay(false);
+    activeStartGame();
+    setDisplayButtonReload();
   }
 
   refreshPage() {
@@ -25,8 +33,7 @@ class ComandButtons extends React.Component {
   }
 
   render() {
-    const { displayButtonPlay } = this.props;
-    const { displayButtonReload } = this.state;
+    const { displayButtonPlay, displayButtonReload } = this.props;
     return (
       <div>
         {(displayButtonPlay) && (
@@ -44,4 +51,16 @@ class ComandButtons extends React.Component {
   }
 }
 
-export default ComandButtons;
+const mapStateToProps = (state) => ({
+  displayButtonPlay: state.buttonsReducer.displayButtonPlay,
+  displayButtonReload: state.buttonsReducer.displayButtonReload,
+})
+
+const mapDispatchToprops = (dispatch) => ({
+  displayOptionsStatus: (status) => dispatch(statusDisplayOptions(status)),
+  statusButtonPlay: (status) => dispatch(statusButtonPlay(status)),
+  activeStartGame: () => dispatch(activeStartGame()),
+  setDisplayButtonReload: () => dispatch(setDisplayButtonReload()),
+})
+
+export default connect(mapStateToProps, mapDispatchToprops)(ComandButtons);

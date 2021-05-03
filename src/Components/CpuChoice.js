@@ -1,36 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { setCpuGame } from '../Actions';
 
 class CpuChoice extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      cpuGame: ''
-    }
-  }
   componentDidMount() {
-    const { handleCpuSelect } = this.props;
+    const { setCpuGame } = this.props;
     const options = ['Pedra', 'Papel', 'Tesoura'];
     const choice = options[Math.floor(Math.random() * options.length)]
-    this.setState({ cpuGame: choice })
-    handleCpuSelect(choice);
+    setCpuGame(choice)
   }
 
-  // cpuOption() {
-  //   const { handleCpuSelect } = this.props;
-  //   const options = ['Pedra', 'Papel', 'tesoura'];
-  //   const choice = options[Math.floor(Math.random() * options.length)];
-  //   handleCpuSelect(choice);
-  //   return choice;
-  // }
-
   render() {
-    const { playerChoiceSelectd } = this.props;
-    const { cpuGame } = this.state;
+    const { startGame, cpuOption } = this.props;
     return (
-      <p>CPU: { (playerChoiceSelectd) ? cpuGame : 'aguardando jogador'}</p>
+      <p>CPU: { (startGame) ? cpuOption : 'aguardando jogador'}</p>
     );
   }
 }
 
-export default CpuChoice;
+const mapStateToProps = (state) => ({
+  cpuOption: state.gameReducer.cpuOption,
+  startGame: state.gameReducer.startGame,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setCpuGame: (choice) => dispatch(setCpuGame(choice))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CpuChoice);
