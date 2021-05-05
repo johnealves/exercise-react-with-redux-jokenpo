@@ -28,9 +28,11 @@ Essa estrutura é bastante confusa e dificil de gerenciar, mude para a branch ex
 A store, os reducers e as actions ja estão disponíveis voce deverá usar mapStateToprops e mapDispatchToProps para pegar e enviar dados para a store.
 
 Exercício 1
+
 Vá para a branch exercise-one e rode a aplicação, ela não funcionrá pois os estados não estão sendo passdo via props, use mapStateToProps para acessar os estados da aplicação e resgatar os estados necessarios para fazer cada componente funcionar
 
 Exercício 2
+
 Nesse exercicio você tera um desafio maior, vá para a branch exercise-two, essa branch recebe os estados nos lugares corretos não envia informações para a store, use mapDispatchToProps para enviar dados para a storee fazer a aplicação funcionar
 
 Utilize Redux para armazenar todo o estado da aplicação. Apos terminar o exercicio compara o resultado final com o da branch main que não faz uso do Redux.
