@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+Esse é um projeto para o conteúdo sobre Redux com react.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Antes de iniciar Crie um fork desse projeto e para isso siga esse tutorial de como realizar um fork.
 
-## Available Scripts
+Após feito o fork, clone o repositório criado para o seu computador.
 
-In the project directory, you can run:
+Rode o npm install.
 
-### `npm start`
+Vá para a branch master do seu projeto e execute o comando:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+git branch Verifique se as seguintes branchs apareceram:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+exercise-one exercise-two
 
-### `npm test`
+Cada branch dessas será um exercício. Mude para a branch exercise-one com o comando git checkout exercise-one. É nessa branch que você realizará a solução para o exercício 1, e assim por diante. Observe o que deve ser feito nas instruções para cada exercício.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+COMEÇANDO OS EXERCÍCIOS Dica: Use o Redux Devtools para ver o estado da sua aplicação em seu navegador.
 
-### `npm run build`
+Antes de começar vá para a branch main e veja a aplicaçao funcionando, nessa branch so foi utilizado estados locais e as informações são passadas por meio de props. Repare que a arvore Dom possui ramos diferentes por isso em alguns casos é necessario criar estados no componente pai(App) e criar funções que alterem esses estados que seram passadas para componentes filhos e netos para que estes possam alterar os estado do componente pai e este estado possa ser passado para outro componente em outro ramos da arvore.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Essa estrutura é bastante confusa e dificil de gerenciar, mude para a branch exercise-one e vamos ver como essa aplicação fica usando o redux
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A store, os reducers e as actions ja estão disponíveis voce deverá usar mapStateToprops e mapDispatchToProps para pegar e enviar dados para a store.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Exercício 1
 
-### `npm run eject`
+Vá para a branch exercise-one e rode a aplicação, ela não funcionrá pois os estados não estão sendo passdo via props, use mapStateToProps para acessar os estados da aplicação e resgatar os estados necessarios para fazer cada componente funcionar
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Exercício 2
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Nesse exercicio você tera um desafio maior, vá para a branch exercise-two, essa branch recebe os estados nos lugares corretos não envia informações para a store, use mapDispatchToProps para enviar dados para a storee fazer a aplicação funcionar
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Utilize Redux para armazenar todo o estado da aplicação. Apos terminar o exercicio compara o resultado final com o da branch main que não faz uso do Redux.
